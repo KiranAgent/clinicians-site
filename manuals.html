@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manuals &amp; Apps &middot; Ari Leal for Clinicians</title>
+<meta name="description" content="Treatment manuals, protocols and small applications for working clinicians — beginning with a pragmatic psychodynamic manual. In development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap">
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+
+<nav id="nav">
+  <a class="wordmark" href="index.html" aria-label="Ari Leal — for clinicians"><img src="assets/signature.png" alt="Ari Leal"><span class="wm-sub">For Clinicians</span></a>
+  <ul>
+    <li><a href="creative.html">Creative</a></li>
+    <li><a href="forms.html">Forms</a></li>
+    <li><a href="grant-writing.html">Grant Writing</a></li>
+    <li><a href="manuals.html">Manuals</a></li>
+    <li><a href="spanish-materials.html">Spanish Materials</a></li>
+    <li><a href="tools.html">Tools</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a class="pill pill--ghost navpill" href="https://www.arileal.com">arileal.com</a></li>
+    <li><a class="cta" href="#contact">Contact</a></li>
+  </ul>
+  <button id="menuBtn" class="menu-btn" aria-expanded="false" aria-controls="drawer">Menu</button>
+</nav>
+
+<div id="drawer" class="drawer" aria-hidden="true">
+  <button id="drawerClose" class="drawer-close" aria-label="Close">Close</button>
+  <a href="creative.html">Creative</a>
+  <a href="forms.html">Forms</a>
+  <a href="grant-writing.html">Grant Writing</a>
+  <a href="manuals.html">Manuals</a>
+  <a href="spanish-materials.html">Spanish Materials</a>
+  <a href="tools.html">Tools</a>
+  <a href="index.html#about">About</a>
+  <a href="#contact">Contact</a>
+  <a href="https://www.arileal.com">arileal.com</a>
+</div>
+
+
+<section class="panel" id="c-hero" data-tone="dark">
+  <div class="wrap">
+    <p class="eyebrow rv">Manuals &amp; Apps</p>
+    <h1 class="rv">Treatment guides, written to be used.</h1>
+    <p class="lede rv">Manuals, protocols and small applications for working clinicians &mdash; built by someone who has to use them on Monday morning.</p>
+  </div>
+</section>
+
+<section class="panel c-body" data-tone="light">
+  <div class="wrap"><div class="c-col">
+
+    <div class="c-beat">
+      <p class="eyebrow">What this is</p>
+      <h2>Practical, not academic.</h2>
+      <p class="lead">Most treatment manuals are written for trials. They describe a protocol precisely enough to be studied and not clearly enough to be used at four o'clock on a Thursday.</p>
+      <p>The work here goes the other way: what to listen for, what to say, what to do when the session doesn't go where the model says it should. Structured enough to teach, honest enough about where the structure runs out.</p>
+      <p>The first is a pragmatic psychodynamic manual &mdash; defense, affect, attachment, and the transference as they actually show up in a general practice caseload.</p>
+      <div class="notebox">
+        <p><b>How these are built.</b> Where something is delivered as an application rather than a document, it runs client-side only: nothing you or a client enters is transmitted or stored. It stays on your screen until you print it or write it into your own record.</p>
+      </div>
+    </div>
+
+    <div class="c-beat">
+      <p class="eyebrow">Status</p>
+      <h2>In development.</h2>
+      <div class="empty-shelf">
+        <p>The first manual is being written.</p>
+      </div>
+      <p style="margin-top:22px">Nothing here ships before it has been used in a real caseload long enough to know where it fails. Write to me if you'd like to hear when the first one is ready.</p>
+    </div>
+
+  </div></div>
+</section>
+<section class="panel" id="contact" data-tone="dark">
+  <div class="wrap begin-inner">
+    <p class="eyebrow">Contact</p>
+    <h2>Want word when the first tool opens?</h2>
+    <p class="lede">Tell me what you're working with and what you need. I'll tell you plainly whether I can help, and what it would cost.</p>
+    <p class="cta-row">
+      <a class="pill pill--solid" href="mailto:ari@arileal.com?subject=Clinician%20services">Write to Ari</a>
+    </p>
+    <p class="reach">
+      <a href="mailto:ari@arileal.com">ari@arileal.com</a><br>
+      <a href="tel:+16592745325">(659) ARI-LEAL &middot; 659-274-5325</a><br>
+      <span class="dim">Ari Leal LLC &middot; professional services for clinicians and practices</span>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <p class="legal">Ari Leal LLC provides professional services to clinicians and practices. These services are not psychotherapy, clinical supervision, clinical consultation, or legal or compliance advice, and no clinician&ndash;patient relationship is created.</p>
+  <p class="legal">&copy; 2026 Ari Leal LLC</p>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement; root.classList.add('js');
+  document.body.setAttribute('data-tone','light');
+  var panels=[].slice.call(document.querySelectorAll('.panel'));
+  var nav=document.getElementById('nav');
+  if('IntersectionObserver' in window){
+    var reveal=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('is-in');});},{threshold:0.12});
+    panels.forEach(function(p){reveal.observe(p);});
+    var active=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      document.body.setAttribute('data-tone',e.target.getAttribute('data-tone'));
+    });},{threshold:0.5});
+    panels.forEach(function(p){active.observe(p);});
+  }else{panels.forEach(function(p){p.classList.add('is-in');});}
+  panels[0].classList.add('is-in');
+  function onScroll(){nav.classList.toggle('solid',window.scrollY>40);} onScroll();
+  window.addEventListener('scroll',onScroll,{passive:true});
+  var btn=document.getElementById('menuBtn'),dr=document.getElementById('drawer'),cl=document.getElementById('drawerClose');
+  function openD(){dr.classList.add('open');dr.setAttribute('aria-hidden','false');btn.setAttribute('aria-expanded','true');}
+  function closeD(){dr.classList.remove('open');dr.setAttribute('aria-hidden','true');btn.setAttribute('aria-expanded','false');}
+  if(btn){btn.addEventListener('click',openD);} if(cl){cl.addEventListener('click',closeD);}
+  if(dr){dr.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeD);});}
+})();
+</script>
+</body>
+</html>
