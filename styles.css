@@ -493,3 +493,98 @@ html.js .panel:not(.is-in) .flag .cover{transform:translateY(20px) rotate(-4deg)
   .menu a{transform:none;transition:color .2s ease}
   .lpanel{transform:none}
 }
+
+/* =====================================================================
+   FOR CLINICIANS (clinicians.arileal.com) — same system, its own pieces
+   ===================================================================== */
+.nav-l .wm-sub{font-family:var(--body);font-size:11.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);white-space:nowrap;transition:color .45s ease}
+body.dark-nav .nav-l .wm-sub,body.menu-open .nav-l .wm-sub{color:var(--gold)}
+.menu--long a{font-size:clamp(1.6rem,4.4vw,3.1rem)}
+body.menu-open .menu li:nth-child(7) a{transition-delay:.42s}
+body.menu-open .menu li:nth-child(8) a{transition-delay:.46s}
+body.menu-open .menu li:nth-child(9) a{transition-delay:.5s}
+@media (max-height:760px){.menu--long a{font-size:clamp(1.5rem,3.6vh,2.4rem)}}
+
+#c-hero{padding-block:calc(var(--nav-h) + clamp(56px,10vh,120px)) clamp(48px,7vh,84px)}
+#c-hero::before{content:"";position:absolute;right:-6%;top:-10%;width:min(60vw,720px);height:min(50vw,520px);z-index:0;pointer-events:none;filter:blur(40px);
+  background:radial-gradient(ellipse,rgba(var(--gold-rgb),.2),rgba(var(--gold-rgb),0) 66%)}
+#c-hero .wrap{max-width:1360px}
+#c-hero .wrap > *{max-width:860px}
+#c-hero .eyebrow{margin-bottom:18px}
+#c-hero h1{font-size:clamp(2.4rem,4.8vw,4.4rem);line-height:1.02;letter-spacing:-.04em;margin-bottom:22px}
+#c-hero .lede{max-width:56ch}
+.creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.creds span{font-family:var(--display);font-size:11.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-deep);
+  border:1px solid var(--ink-deep);border-radius:999px;padding:6px 12px}
+
+.c-body{padding-block:clamp(24px,4vw,56px) clamp(56px,8vw,110px);align-items:flex-start}
+.c-col{width:100%;max-width:680px;margin:0 auto}
+.c-beat{padding:52px 0 10px}
+.c-beat + .c-beat{border-top:1px solid var(--rule)}
+.c-beat h2{font-size:clamp(1.75rem,3vw,2.4rem);line-height:1.08;margin:14px 0 20px}
+.c-beat p{color:var(--dim);font-size:17px;line-height:1.72;margin-bottom:16px;max-width:62ch}
+.c-beat p.eyebrow{font-size:11.5px;line-height:1.6;color:var(--accent);margin-bottom:0}
+.c-beat p.lead{font-size:19px;line-height:1.6;color:var(--fg)}
+.c-beat p b{color:var(--fg)}
+.c-beat ol{counter-reset:s;list-style:none;margin:8px 0 18px}
+.c-beat ol li{counter-increment:s;position:relative;padding-left:48px;margin-bottom:18px;color:var(--dim);font-size:16.5px;line-height:1.65}
+.c-beat ol li::before{content:counter(s);position:absolute;left:0;top:-2px;width:30px;height:30px;border:1px solid var(--rule);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:500;font-size:13px;font-variant-numeric:tabular-nums;color:var(--accent)}
+.c-beat ol li b{color:var(--fg);font-family:var(--display);font-weight:500;font-size:17px;letter-spacing:-.01em}
+.c-beat .arcs-note{margin-top:16px;font-size:15px;color:var(--dim)}
+
+/* six lines of work: hairline rows, the way the homepage lists the work */
+#branches-wide{max-width:1100px}
+.branches{border-top:1px solid var(--fg);margin-top:8px}
+.branch{position:relative;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.5fr) 170px;grid-template-rows:auto 1fr;
+  grid-template-areas:"t p go" "k p go";column-gap:clamp(18px,3vw,44px);row-gap:4px;align-items:start;
+  padding-block:clamp(22px,2.6vw,32px);border-bottom:1px solid var(--rule);color:inherit}
+.branch::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--out)}
+.branch h3{grid-area:t;font-size:clamp(1.35rem,2vw,1.7rem);letter-spacing:-.03em;color:var(--fg)}
+.branch .kicker{grid-area:k;font-size:15px;color:var(--accent);margin:0}
+.c-beat .branch p:not(.kicker){grid-area:p;color:var(--dim);font-size:15.5px;line-height:1.6;margin:0;max-width:56ch}
+.branch .enter{grid-area:go;align-self:center;justify-self:end;font-family:var(--display);font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
+.branch h3,.branch .kicker,.branch p,.branch .enter{transition:transform .45s var(--out)}
+
+.prices{margin-top:26px;border-top:1px solid var(--fg)}
+.price-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--rule)}
+.price-row .pname{font-family:var(--display);font-weight:500;font-size:18px;letter-spacing:-.02em;color:var(--fg)}
+.price-row .pdesc{color:var(--dim);font-size:15px;line-height:1.55;margin-top:4px}
+.price-row .pfig{font-family:var(--display);font-weight:500;font-size:16px;color:var(--fg);white-space:nowrap;text-align:right}
+
+.notebox{background:var(--surface);border-radius:var(--r);padding:clamp(22px,3vw,32px) clamp(22px,3vw,36px);margin-top:22px}
+.c-beat .notebox p{font-size:15px;color:var(--dim);margin:0 0 10px;line-height:1.65}
+.c-beat .notebox p:last-child{margin:0}
+.notebox b{color:var(--fg);font-weight:600}
+
+.empty-shelf{background:var(--surface);border-radius:var(--r);padding:clamp(40px,6vw,64px) 28px;text-align:center;margin-top:26px}
+.c-beat .empty-shelf p{font-family:var(--display);font-weight:400;font-size:clamp(1.15rem,2vw,1.4rem);letter-spacing:-.015em;color:var(--fg);margin:0 auto;max-width:none}
+
+.who{display:grid;grid-template-columns:minmax(0,210px) minmax(0,1fr);gap:clamp(22px,3vw,40px);align-items:start;margin-top:6px}
+.who-img{width:100%;height:auto;border-radius:16px}
+.who-copy p:last-child{margin-bottom:0}
+
+/* contact, inset on night */
+#contact{display:block;background:var(--paper);padding:clamp(24px,4vw,60px) var(--inset)}
+#contact .begin-inner h2{font-size:clamp(2.2rem,4.8vw,4rem);font-weight:400;letter-spacing:-.04em}
+#contact .begin-inner .eyebrow{margin-bottom:16px}
+.reach{margin-top:26px;font-size:14.5px;line-height:1.9;color:var(--muted)}
+.reach a{color:var(--ink)}
+.reach .dim{color:var(--muted);font-size:13px}
+.site-foot .foot-min{border-top:1px solid var(--shore-line);padding-top:24px}
+.legal{max-width:80ch;line-height:1.6;font-size:12px;color:var(--muted-deep);opacity:.85}
+.legal + .legal{margin-top:10px}
+
+@media (hover:hover) and (pointer:fine){
+  .branch:hover::before{transform:scaleX(1)}
+  .branch:hover h3,.branch:hover .kicker,.branch:hover p,.branch:hover .enter{transform:translateX(8px)}
+  .reach a:hover{color:var(--gold)}
+}
+@media (max-width:900px){
+  .branch{grid-template-columns:minmax(0,1fr);grid-template-rows:auto;grid-template-areas:"t" "k" "p" "go";row-gap:6px}
+  .branch .enter{align-self:start;justify-self:start;margin-top:8px}
+}
+@media (max-width:720px){.who{grid-template-columns:1fr;gap:20px}.who-img{max-width:220px}}
+@media (max-width:600px){.price-row{grid-template-columns:1fr}.price-row .pfig{text-align:left}}
+@media (max-width:640px){.nav-l .wm-sub,.nav-l .bar{display:none}}
+@media (prefers-reduced-motion:reduce){.branch::before,.branch h3,.branch .kicker,.branch p,.branch .enter{transition:none}}

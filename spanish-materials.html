@@ -7,13 +7,13 @@
 <meta name="description" content="AI-assisted Spanish translation of your practice materials, reviewed line by line by a bilingual master's-level clinician and delivered with a signed statement of review. From $1,500.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap">
-<link rel="stylesheet" href="styles.css?v=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="styles.css?v=2">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta name="theme-color" content="#070B14">
+<meta name="theme-color" content="#F3F1EC">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ari Leal — For Clinicians">
 <meta property="og:title" content="Clinician-Verified Spanish Materials · Ari Leal for Clinicians">
@@ -29,36 +29,40 @@
 </head>
 <body>
 
-<nav id="nav">
-  <a class="wordmark" href="index.html" aria-label="Ari Leal — for clinicians"><img src="assets/signature.png" alt="Ari Leal"><span class="wm-sub">For Clinicians</span></a>
-  <ul>
-    <li><a href="creative.html">Creative</a></li>
-    <li><a href="forms.html">Forms</a></li>
-    <li><a href="grant-writing.html">Grant Writing</a></li>
-    <li><a href="manuals.html">Manuals</a></li>
-    <li><a href="spanish-materials.html">Spanish Materials</a></li>
-    <li><a href="tools.html">Tools</a></li>
-    <li><a href="index.html#about">About</a></li>
-    <li><a class="pill pill--ghost navpill" href="https://www.arileal.com">arileal.com</a></li>
-    <li><a class="cta" href="#contact">Contact</a></li>
-  </ul>
-  <button id="menuBtn" class="menu-btn" aria-expanded="false" aria-controls="drawer">Menu</button>
+<nav class="top" aria-label="Primary">
+  <div class="nav-l">
+    <a class="sig" href="index.html" aria-label="Ari Leal, for clinicians, home">
+      <img class="sig-ink" src="assets/signature-ink.png" alt="Ari Leal">
+      <img class="sig-light" src="assets/signature.png" alt="" aria-hidden="true">
+    </a>
+    <span class="bar"></span>
+    <span class="wm-sub">For Clinicians</span>
+  </div>
+  <div class="nav-r">
+    <a class="talk" href="#contact">Contact</a>
+    <span class="bar"></span>
+    <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+  </div>
 </nav>
 
-<div id="drawer" class="drawer" aria-hidden="true">
-  <button id="drawerClose" class="drawer-close" aria-label="Close">Close</button>
-  <a href="creative.html">Creative</a>
-  <a href="forms.html">Forms</a>
-  <a href="grant-writing.html">Grant Writing</a>
-  <a href="manuals.html">Manuals</a>
-  <a href="spanish-materials.html">Spanish Materials</a>
-  <a href="tools.html">Tools</a>
-  <a href="index.html#about">About</a>
-  <a href="#contact">Contact</a>
-  <a href="https://www.arileal.com">arileal.com</a>
+<div class="menu menu--long" id="menu" aria-hidden="true" inert>
+  <div>
+    <ul>
+      <li><a href="creative.html">Creative</a></li>
+      <li><a href="forms.html">Forms</a></li>
+      <li><a href="grant-writing.html">Grant Writing</a></li>
+      <li><a href="manuals.html">Manuals</a></li>
+      <li><a href="spanish-materials.html">Spanish Materials</a></li>
+      <li><a href="tools.html">Tools</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://www.arileal.com">arileal.com <small>Coaching</small></a></li>
+    </ul>
+    <div class="menu-foot"><span>ari@arileal.com</span><span>Ari Leal LLC &middot; professional services for clinicians and practices</span></div>
+  </div>
 </div>
 
-<section class="panel" id="c-hero" data-tone="dark">
+<section class="panel" id="c-hero" data-tone="light">
   <div class="wrap">
     <p class="eyebrow rv">Spanish Materials</p>
     <h1 class="rv">Your Spanish materials, verified by a clinician.</h1>
@@ -140,49 +144,89 @@
   </div></div>
 </section>
 
-<section class="panel" id="contact" data-tone="dark">
-  <div class="wrap begin-inner">
-    <p class="eyebrow">Contact</p>
-    <h2>Send me two documents.</h2>
-    <p class="lede">Tell me what you're working with and what you need. I'll tell you plainly whether I can help, and what it would cost.</p>
-    <p class="cta-row">
-      <a class="pill pill--solid" href="mailto:ari@arileal.com?subject=Clinician%20services">Write to Ari</a>
-    </p>
-    <p class="reach">
-      <a href="mailto:ari@arileal.com">ari@arileal.com</a><br>
-      <a href="tel:+16592745325">(659) ARI-LEAL &middot; 659-274-5325</a><br>
-      <span class="dim">Ari Leal LLC &middot; professional services for clinicians and practices</span>
-    </p>
+<section class="panel" id="contact" data-tone="light">
+  <div class="night-card" data-tone="dark">
+    <div class="begin-inner">
+        <p class="eyebrow">Contact</p>
+        <h2>Send me two documents.</h2>
+        <p class="lede">Tell me what you're working with and what you need. I'll tell you plainly whether I can help, and what it would cost.</p>
+        <p class="cta-row">
+          <a class="pill pill--solid mag" href="mailto:ari@arileal.com?subject=Clinician%20services">Write to Ari</a>
+        </p>
+        <p class="reach">
+          <a href="mailto:ari@arileal.com">ari@arileal.com</a><br>
+          <a href="tel:+16592745325">(659) ARI-LEAL &middot; 659-274-5325</a><br>
+          <span class="dim">Ari Leal LLC &middot; professional services for clinicians and practices</span>
+        </p>
+    </div>
   </div>
 </section>
 
-<footer>
-  <p class="legal">Ari Leal LLC provides professional services to clinicians and practices. These services are not psychotherapy, clinical supervision, clinical consultation, or legal or compliance advice, and no clinician&ndash;patient relationship is created.</p>
-  <p class="legal">&copy; 2026 Ari Leal LLC</p>
+<footer class="site-foot">
+  <div class="shell foot-min">
+    <p class="legal">Ari Leal LLC provides professional services to clinicians and practices. These services are not psychotherapy, clinical supervision, clinical consultation, or legal or compliance advice, and no clinician&ndash;patient relationship is created.</p>
+    <p class="legal">&copy; 2026 Ari Leal LLC</p>
+  </div>
 </footer>
 <script>
 (function(){
-  var root=document.documentElement; root.classList.add('js');
-  document.body.setAttribute('data-tone','light');
+  var root=document.documentElement, body=document.body; root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine=window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  /* reveals */
   var panels=[].slice.call(document.querySelectorAll('.panel'));
-  var nav=document.getElementById('nav');
   if('IntersectionObserver' in window){
-    var reveal=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('is-in');});},{threshold:0.12});
-    panels.forEach(function(p){reveal.observe(p);});
-    var active=new IntersectionObserver(function(es){es.forEach(function(e){
-      if(!e.isIntersecting)return;
-      document.body.setAttribute('data-tone',e.target.getAttribute('data-tone'));
-    });},{threshold:0.5});
-    panels.forEach(function(p){active.observe(p);});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}
+    });},{threshold:0,rootMargin:'0px 0px -10% 0px'});
+    panels.forEach(function(p){io.observe(p);});
   }else{panels.forEach(function(p){p.classList.add('is-in');});}
-  panels[0].classList.add('is-in');
-  function onScroll(){nav.classList.toggle('solid',window.scrollY>40);} onScroll();
-  window.addEventListener('scroll',onScroll,{passive:true});
-  var btn=document.getElementById('menuBtn'),dr=document.getElementById('drawer'),cl=document.getElementById('drawerClose');
-  function openD(){dr.classList.add('open');dr.setAttribute('aria-hidden','false');btn.setAttribute('aria-expanded','true');}
-  function closeD(){dr.classList.remove('open');dr.setAttribute('aria-hidden','true');btn.setAttribute('aria-expanded','false');}
-  if(btn){btn.addEventListener('click',openD);} if(cl){cl.addEventListener('click',closeD);}
-  if(dr){dr.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeD);});}
+  if(panels[0])panels[0].classList.add('is-in');
+
+  /* nav: light over night, a soft fade once the page moves */
+  var darks=[].slice.call(document.querySelectorAll('[data-tone="dark"]'));
+  function paint(){
+    var dark=false, full=false;
+    for(var i=0;i<darks.length;i++){var r=darks[i].getBoundingClientRect();
+      if(r.top<=40&&r.bottom>=40){dark=true;full=!darks[i].classList.contains('night-card');break;}}
+    body.classList.toggle('dark-nav',dark);
+    body.classList.toggle('scrolled',window.scrollY>24&&(!dark||full));
+  }
+  var tick=false;
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(function(){tick=false;paint();});}},{passive:true});
+  window.addEventListener('resize',paint); paint();
+
+  /* menu */
+  var burger=document.getElementById('burger'), menuEl=document.getElementById('menu');
+  function setMenu(open){
+    body.classList.toggle('menu-open',open);
+    burger.setAttribute('aria-expanded',open?'true':'false');
+    menuEl.setAttribute('aria-hidden',open?'false':'true');
+    menuEl.inert=!open;
+    if(open){var f=menuEl.querySelector('a');if(f)setTimeout(function(){f.focus({preventScroll:true});},120);}
+    else if(document.activeElement&&menuEl.contains(document.activeElement)){burger.focus();}
+  }
+  burger.addEventListener('click',function(){setMenu(!body.classList.contains('menu-open'));});
+  [].slice.call(menuEl.querySelectorAll('a')).forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&body.classList.contains('menu-open'))setMenu(false);});
+
+  /* magnetic pills: a light spring toward the pointer, fine pointers only */
+  if(fine&&!reduce){
+    [].slice.call(document.querySelectorAll('.mag')).forEach(function(b){
+      var tx=0,ty=0,x=0,y=0,vx=0,vy=0,run=false;
+      function step(){
+        vx=(vx+(tx-x)*.16)*.72; vy=(vy+(ty-y)*.16)*.72; x+=vx; y+=vy;
+        b.style.transform='translate('+x.toFixed(2)+'px,'+y.toFixed(2)+'px)';
+        if(Math.abs(tx-x)+Math.abs(ty-y)+Math.abs(vx)+Math.abs(vy)>.05)requestAnimationFrame(step);
+        else{run=false;if(!tx&&!ty)b.style.transform='';}
+      }
+      function kick(){if(!run){run=true;requestAnimationFrame(step);}}
+      b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();
+        tx=(e.clientX-r.left-r.width/2)*.16; ty=(e.clientY-r.top-r.height/2)*.22; kick();});
+      b.addEventListener('pointerleave',function(){tx=0;ty=0;kick();});
+    });
+  }
 })();
 </script>
 </body>
