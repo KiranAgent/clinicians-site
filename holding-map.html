@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Holding Map &mdash; spiritual experience, intuition, and what it is not &middot; Ari Leal</title>
+<meta name="description" content="An instrument for locating where an unusual or spiritual experience is sitting in a life — what it costs, how much room it takes, how alone you are in it. Not whether it was real.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="styles.css?v=5">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#F3F1EC">
+<style>
+/* ===== The Holding Map — page-scoped; inherits the tone tokens ===== */
+.hm-wide{max-width:1040px;margin:0 auto}
+#art-body .hm-wide p{margin-bottom:0}
+.hm-sec{margin-top:clamp(44px,6vh,72px)}
+.hm-sec > .eyebrow{display:block;margin-bottom:12px}
+.hm-sec > h2{font-size:clamp(23px,2.8vw,30px);line-height:1.2;margin-bottom:14px}
+.hm-intro{display:grid;grid-template-columns:1fr 1fr;gap:30px 44px;margin-top:26px}
+.hm-intro h3{font-family:var(--fr);font-weight:500;font-size:19px;color:var(--fg);margin-bottom:8px}
+#art-body .hm-intro p{font-size:16px;line-height:1.72;margin:0}
+.hm-intro b{color:var(--fg);font-weight:400}
+
+.hm-ask{background:var(--surface);border:1px solid var(--rule);border-radius:24px;padding:clamp(26px,3vw,36px) clamp(22px,3vw,40px);margin-top:24px}
+.hm-ask h3{font-family:var(--fr);font-weight:500;font-size:clamp(20px,2.4vw,27px);line-height:1.2;color:var(--fg);margin-bottom:14px;max-width:26ch}
+#art-body .hm-ask p{font-size:16px;line-height:1.72;margin:0}
+
+.hm-dims{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:24px;overflow:hidden;margin-top:26px}
+.hm-dim{background:var(--surface);padding:clamp(24px,2.6vw,32px) clamp(20px,2.6vw,32px) 24px}
+.hm-dim-top{display:flex;align-items:baseline;gap:13px;flex-wrap:wrap}
+.hm-ord{font-family:var(--ar);font-size:11.5px;font-weight:600;letter-spacing:.18em;color:var(--accent)}
+.hm-dim h3{font-family:var(--fr);font-weight:500;font-size:20px;color:var(--fg);margin:0}
+.hm-dim .kicker{font-size:15px}
+#art-body .hm-body{font-size:15.5px;line-height:1.7;margin:10px 0 20px;max-width:62ch}
+.hm-scale{display:flex;border:0;padding:0;margin:16px 0 0;max-width:540px}
+.hm-scale legend{position:absolute;left:-9999px}
+.hm-opt{flex:1;position:relative}
+.hm-opt input{position:absolute;inset:0;opacity:0;width:100%;height:100%;margin:0;cursor:pointer;z-index:2}
+.hm-box{display:flex;align-items:center;justify-content:center;height:48px;
+  border:1px solid var(--rule);border-right:0;background:var(--bg);
+  font-family:var(--display);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--dim);
+  transition:background .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease)}
+.hm-opt:first-of-type .hm-box{border-radius:999px 0 0 999px}
+.hm-opt:last-child .hm-box{border-right:1px solid var(--rule);border-radius:0 999px 999px 0}
+.hm-opt:hover .hm-box{color:var(--fg)}
+.hm-opt input:checked + .hm-box{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.hm-opt input:focus-visible + .hm-box{outline:2px solid var(--focus);outline-offset:3px;position:relative;z-index:3}
+.hm-poles{display:flex;justify-content:space-between;max-width:540px;margin-top:9px;
+  font-family:var(--ar);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.hm-poles span:last-child{text-align:right}
+
+.hm-other{margin-top:30px;border:1px solid var(--fg);border-radius:24px;padding:clamp(26px,3vw,36px) clamp(22px,3vw,40px)}
+.hm-other h3{font-family:var(--fr);font-weight:500;font-size:21px;color:var(--fg);margin-bottom:8px}
+.hm-pair{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:20px}
+.hm-pair h4{font-family:var(--ar);font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+#art-body .hm-pair p{font-size:15.5px;line-height:1.7;margin:0}
+.hm-who{margin-top:24px;padding-top:18px;border-top:1px solid var(--rule);
+  font-family:var(--display);font-weight:400;font-size:19px;line-height:1.4;letter-spacing:-.015em;color:var(--fg);max-width:46ch}
+
+.hm-map{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;align-items:start;margin-top:26px}
+.hm-plot{background:var(--surface);border:1px solid var(--rule);border-radius:24px;padding:clamp(16px,2vw,24px)}
+.hm-plot svg{width:100%;height:auto;display:block}
+.hm-ring{fill:none;stroke:var(--rule)}
+.hm-axis{stroke:var(--rule);stroke-width:.7}
+.hm-tick{fill:var(--rule)}
+.hm-lab{font-family:var(--ar);font-size:10px;letter-spacing:.14em;fill:var(--dim)}
+.hm-now{fill:color-mix(in srgb,var(--accent) 15%,transparent);stroke:var(--accent);stroke-width:1.9;stroke-linejoin:round}
+.hm-bead{fill:var(--accent)}
+.hm-ghost{fill:none;stroke:var(--accent);stroke-width:1.1}
+.hm-legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:15px;padding-top:14px;border-top:1px solid var(--rule);
+  font-family:var(--ar);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.hm-legend i{display:inline-block;width:16px;border-top:2px solid var(--accent);vertical-align:middle;margin-right:7px}
+.hm-legend i.g{opacity:.34}
+.hm-acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.hm-acts button.pill{cursor:pointer;-webkit-appearance:none;appearance:none}
+.hm-acts button.pill--ghost{background:transparent}
+.hm-acts .pill[disabled]{opacity:.38;cursor:not-allowed}
+.hm-acts .pill--ghost[disabled]:hover{background:transparent;color:var(--fg);border-color:var(--ghost-line)}
+#art-body .hm-privacy{font-family:var(--ar);font-size:11.5px;letter-spacing:.04em;color:var(--dim);margin:16px 0 0;max-width:44ch}
+.hm-saved{font-family:var(--ar);font-size:11.5px;color:var(--dim);margin-top:14px}
+.hm-saved ul{list-style:none;margin:8px 0 0;padding:0}
+.hm-saved li{padding:6px 0;border-bottom:1px solid var(--rule)}
+
+.hm-read h3{font-family:var(--fr);font-weight:500;font-size:22px;color:var(--fg);margin-bottom:16px}
+.hm-pat{border-left:1px solid var(--accent);padding-left:20px;margin-bottom:26px}
+.hm-pat .tag{font-family:var(--ar);font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);display:block;margin-bottom:8px}
+#art-body .hm-pat p{font-size:16px;line-height:1.7;margin:0}
+.hm-pat .mv{margin-top:12px;padding-top:11px;border-top:1px solid var(--rule)}
+.hm-pat .mv b{font-family:var(--ar);font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--fg);display:block;margin-bottom:5px}
+.hm-pat.hold{border-left-color:var(--fg)}
+.hm-pat.hold .tag{color:var(--fg)}
+.hm-moves{margin-top:30px;padding-top:24px;border-top:1px solid var(--rule)}
+#art-body .hm-moves .intro{font-size:15.5px;margin:6px 0 20px}
+.hm-mi{margin-bottom:26px}
+.hm-mi .ax{font-family:var(--ar);font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);display:flex;gap:10px;margin-bottom:8px}
+.hm-mi .ax em{font-style:normal;color:var(--dim);letter-spacing:.12em}
+#art-body .hm-mi .mean{font-size:16px;line-height:1.7;color:var(--fg);margin:0 0 10px}
+#art-body .hm-mi .do{font-size:15.5px;line-height:1.7;margin:0;padding-left:16px;border-left:1px solid var(--rule)}
+.hm-mi .do b{font-family:var(--ar);font-size:11.5px;color:var(--fg);font-weight:600}
+.hm-out{margin-top:28px;padding-top:20px;border-top:1px solid var(--fg)}
+.hm-out .lab{font-family:var(--ar);font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--dim);display:block;margin-bottom:8px}
+#art-body .hm-out p{font-size:16px;line-height:1.7;margin:0;color:var(--fg)}
+
+.hm-outside{margin-top:40px;border:1px solid var(--fg);border-radius:24px;padding:clamp(26px,3vw,36px) clamp(22px,3vw,40px);background:var(--surface)}
+.hm-outside .lab{font-family:var(--ar);font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+#art-body .hm-outside p{font-size:16.5px;line-height:1.66;color:var(--fg);margin:10px 0 0;max-width:64ch}
+#art-body .hm-outside p.q{color:var(--dim);font-size:15px}
+.hm-fade{animation:hmIn .3s var(--ease)}
+@keyframes hmIn{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+@media (max-width:900px){.hm-intro,.hm-pair,.hm-map{grid-template-columns:1fr;gap:26px}}
+@media (prefers-reduced-motion:reduce){.hm-fade{animation:none}}
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Primary">
+  <div class="nav-l">
+    <a class="sig" href="index.html" aria-label="Ari Leal, home">
+      <img class="sig-ink" src="assets/signature-ink.png" alt="Ari Leal">
+      <img class="sig-light" src="assets/signature.png" alt="" aria-hidden="true">
+    </a>
+  </div>
+  <div class="nav-r">
+    <a class="talk" href="https://app.squareup.com/appointments/book/y8st43sq5wj07b/LZYYP3QT7T5X4/start">Begin <i>&#8599;</i></a>
+    <span class="bar"></span>
+    <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+  </div>
+</nav>
+
+<div class="menu" id="menu" aria-hidden="true" inert>
+  <div>
+    <ul>
+      <li><a href="index.html#work">The Work</a></li>
+      <li><a href="index.html#unfold">UNFOLD <small>The Cabinet</small></a></li>
+      <li><a href="library.html">Library</a></li>
+      <li><a href="index.html#ari">About</a></li>
+      <li><a href="#begin">Begin</a></li>
+      <li><a href="https://clinicians.arileal.com">For Clinicians</a></li>
+    </ul>
+    <div class="menu-foot"><span>ari@arileal.com</span><span>St. Petersburg, Florida &middot; sessions held remotely</span></div>
+  </div>
+</div>
+
+<section class="panel" id="art-hero" data-tone="light">
+  <div class="wrap">
+    <p class="art-crumb rv"><a href="library.html">The Library</a><span>&middot;</span><a href="library.html#assessments">Assessments</a></p>
+    <h1 class="rv">The Holding Map</h1>
+    <p class="standfirst rv">Not whether it was real. Where it is sitting.</p>
+    <p class="art-meta rv">An instrument &middot; draft v0.1</p>
+    <hr class="art-rule rv">
+  </div>
+</section>
+
+<section class="panel" id="art-body" data-tone="light">
+  <div class="wrap">
+
+    <div class="col">
+      <p class="lead">Most attempts to sort genuine spiritual experience from something else begin by examining the experience itself &mdash; what was seen, how strange it was, how certain the person is. That is the wrong end of the problem, and the research is unusually clear about it.</p>
+    </div>
+
+    <div class="hm-wide">
+      <div class="hm-sec">
+        <span class="eyebrow">What this is</span>
+        <div class="hm-intro">
+          <div><h3>The premise</h3>
+            <p><b>Both can be true at once.</b> A person can be having a genuine spiritual experience and be unwell. A person can be having one and be entirely well. Neither rules out the other. Everything here follows from refusing to force that choice &mdash; which is also why this cannot tell you which one it is.</p></div>
+          <div><h3>Why the usual questions fail</h3>
+            <p>Hare Krishnas and Druids, given a delusional-ideation inventory, could not be distinguished from psychiatric inpatients on the number of unusual beliefs they held &mdash; or on how certain they were of them. They differed on <b>distress and preoccupation</b>. Lukoff prints two accounts of seeing a UFO, one from a hospitalised patient and one from a healthy control, whose content is nearly identical.</p></div>
+          <div><h3>What this does instead</h3>
+            <p>It maps six things about <em>how the experience is being held</em> &mdash; what it costs, how much room it takes, how far it has reached, how alone you are in it, what it is doing on its own, and what it makes you do. Every axis runs the same direction: further out means more pressure. The result is a shape, and the shape becomes useful once you have more than one.</p></div>
+          <div><h3>What it will not do</h3>
+            <p>No score, no threshold, no verdict. <b>It cannot tell anyone they are well</b> &mdash; two of its eight dimensions can only be answered by someone else, so every reading ends unfinished on purpose. It is a way of looking, not an assessment, and it is not a substitute for care.</p></div>
+        </div>
+      </div>
+
+      <div class="hm-sec">
+        <span class="eyebrow">Before the map</span>
+        <h2>One thing to hold first</h2>
+        <div class="hm-ask">
+          <h3>What was happening in the months before this began?</h3>
+          <p>A death, a separation, a job lost, a threshold crossed, a long fast, a sleepless stretch, a substance &mdash; or nothing you can point to. An experience with a visible cause is generally easier to metabolise, not more suspect; Lukoff treats identifiable precipitants as a favourable sign. If there is nothing, that is worth knowing too.</p>
+        </div>
+      </div>
+
+      <div class="hm-sec">
+        <span class="eyebrow">Six dimensions</span>
+        <h2>Mark roughly. There are no totals.</h2>
+        <p class="lede">Every axis runs the same direction: further out means more pressure. There are no cut-offs &mdash; the value is in the shape, not the sum.</p>
+        <div class="hm-dims">
+      <div class="hm-dim">
+        <div class="hm-dim-top"><span class="hm-ord">01</span><h3>Cost</h3><span class="kicker">What is this costing me?</span></div>
+        <p class="hm-body">Not whether it was frightening &mdash; awe and holy dread are not distress. Whether you are suffering, now, in an ongoing way.</p>
+        <fieldset class="hm-scale"><legend>Cost: What is this costing me?</legend>
+          <span class="hm-opt"><input type="radio" name="cost" id="cost0" value="0" checked aria-label="Cost level 0 of 4"><span class="hm-box">0</span></span><span class="hm-opt"><input type="radio" name="cost" id="cost1" value="1" aria-label="Cost level 1 of 4"><span class="hm-box">1</span></span><span class="hm-opt"><input type="radio" name="cost" id="cost2" value="2" aria-label="Cost level 2 of 4"><span class="hm-box">2</span></span><span class="hm-opt"><input type="radio" name="cost" id="cost3" value="3" aria-label="Cost level 3 of 4"><span class="hm-box">3</span></span><span class="hm-opt"><input type="radio" name="cost" id="cost4" value="4" aria-label="Cost level 4 of 4"><span class="hm-box">4</span></span>
+        </fieldset>
+        <div class="hm-poles"><span>no distress</span><span>constant distress</span></div>
+      </div>
+      <div class="hm-dim">
+        <div class="hm-dim-top"><span class="hm-ord">02</span><h3>Room</h3><span class="kicker">How much space does it take?</span></div>
+        <p class="hm-body">Hours in the day. What it has displaced. Whether you can put it down and pick it up again, or whether it is always running underneath.</p>
+        <fieldset class="hm-scale"><legend>Room: How much space does it take?</legend>
+          <span class="hm-opt"><input type="radio" name="room" id="room0" value="0" checked aria-label="Room level 0 of 4"><span class="hm-box">0</span></span><span class="hm-opt"><input type="radio" name="room" id="room1" value="1" aria-label="Room level 1 of 4"><span class="hm-box">1</span></span><span class="hm-opt"><input type="radio" name="room" id="room2" value="2" aria-label="Room level 2 of 4"><span class="hm-box">2</span></span><span class="hm-opt"><input type="radio" name="room" id="room3" value="3" aria-label="Room level 3 of 4"><span class="hm-box">3</span></span><span class="hm-opt"><input type="radio" name="room" id="room4" value="4" aria-label="Room level 4 of 4"><span class="hm-box">4</span></span>
+        </fieldset>
+        <div class="hm-poles"><span>easily set down</span><span>always running</span></div>
+      </div>
+      <div class="hm-dim">
+        <div class="hm-dim-top"><span class="hm-ord">03</span><h3>Reach</h3><span class="kicker">How far has it reached into the rest of my life?</span></div>
+        <p class="hm-body">Sleep, food, work, obligations, the people who depend on you. If everyday functioning is intact, unusual beliefs carry little weight on their own.</p>
+        <fieldset class="hm-scale"><legend>Reach: How far has it reached into the rest of my life?</legend>
+          <span class="hm-opt"><input type="radio" name="reach" id="reach0" value="0" checked aria-label="Reach level 0 of 4"><span class="hm-box">0</span></span><span class="hm-opt"><input type="radio" name="reach" id="reach1" value="1" aria-label="Reach level 1 of 4"><span class="hm-box">1</span></span><span class="hm-opt"><input type="radio" name="reach" id="reach2" value="2" aria-label="Reach level 2 of 4"><span class="hm-box">2</span></span><span class="hm-opt"><input type="radio" name="reach" id="reach3" value="3" aria-label="Reach level 3 of 4"><span class="hm-box">3</span></span><span class="hm-opt"><input type="radio" name="reach" id="reach4" value="4" aria-label="Reach level 4 of 4"><span class="hm-box">4</span></span>
+        </fieldset>
+        <div class="hm-poles"><span>nothing else touched</span><span>everything affected</span></div>
+      </div>
+      <div class="hm-dim">
+        <div class="hm-dim-top"><span class="hm-ord">04</span><h3>Company</h3><span class="kicker">How alone am I in this?</span></div>
+        <p class="hm-body">Alone, or with one person, or inside a practice, or inside a lineage with elders. Solitude is not a fault. It is a different kind of exposure.</p>
+        <fieldset class="hm-scale"><legend>Company: How alone am I in this?</legend>
+          <span class="hm-opt"><input type="radio" name="comp" id="comp0" value="0" checked aria-label="Company level 0 of 4"><span class="hm-box">0</span></span><span class="hm-opt"><input type="radio" name="comp" id="comp1" value="1" aria-label="Company level 1 of 4"><span class="hm-box">1</span></span><span class="hm-opt"><input type="radio" name="comp" id="comp2" value="2" aria-label="Company level 2 of 4"><span class="hm-box">2</span></span><span class="hm-opt"><input type="radio" name="comp" id="comp3" value="3" aria-label="Company level 3 of 4"><span class="hm-box">3</span></span><span class="hm-opt"><input type="radio" name="comp" id="comp4" value="4" aria-label="Company level 4 of 4"><span class="hm-box">4</span></span>
+        </fieldset>
+        <div class="hm-poles"><span>held with others</span><span>no one knows</span></div>
+      </div>
+      <div class="hm-dim">
+        <div class="hm-dim-top"><span class="hm-ord">05</span><h3>Tempo</h3><span class="kicker">What is the experience itself doing?</span></div>
+        <p class="hm-body">Not what it makes you do &mdash; what it is doing on its own. Settling, holding steady, or picking up speed.</p>
+        <fieldset class="hm-scale"><legend>Tempo: What is the experience itself doing?</legend>
+          <span class="hm-opt"><input type="radio" name="tempo" id="tempo0" value="0" checked aria-label="Tempo level 0 of 4"><span class="hm-box">0</span></span><span class="hm-opt"><input type="radio" name="tempo" id="tempo1" value="1" aria-label="Tempo level 1 of 4"><span class="hm-box">1</span></span><span class="hm-opt"><input type="radio" name="tempo" id="tempo2" value="2" aria-label="Tempo level 2 of 4"><span class="hm-box">2</span></span><span class="hm-opt"><input type="radio" name="tempo" id="tempo3" value="3" aria-label="Tempo level 3 of 4"><span class="hm-box">3</span></span><span class="hm-opt"><input type="radio" name="tempo" id="tempo4" value="4" aria-label="Tempo level 4 of 4"><span class="hm-box">4</span></span>
+        </fieldset>
+        <div class="hm-poles"><span>settling</span><span>accelerating</span></div>
+      </div>
+      <div class="hm-dim">
+        <div class="hm-dim-top"><span class="hm-ord">06</span><h3>Fruit</h3><span class="kicker">What is it making me do?</span></div>
+        <p class="hm-body">Toward people or away from them. Toward obligations or out of them. Whether there is anything to do as a result, or only something to believe.</p>
+        <fieldset class="hm-scale"><legend>Fruit: What is it making me do?</legend>
+          <span class="hm-opt"><input type="radio" name="fruit" id="fruit0" value="0" checked aria-label="Fruit level 0 of 4"><span class="hm-box">0</span></span><span class="hm-opt"><input type="radio" name="fruit" id="fruit1" value="1" aria-label="Fruit level 1 of 4"><span class="hm-box">1</span></span><span class="hm-opt"><input type="radio" name="fruit" id="fruit2" value="2" aria-label="Fruit level 2 of 4"><span class="hm-box">2</span></span><span class="hm-opt"><input type="radio" name="fruit" id="fruit3" value="3" aria-label="Fruit level 3 of 4"><span class="hm-box">3</span></span><span class="hm-opt"><input type="radio" name="fruit" id="fruit4" value="4" aria-label="Fruit level 4 of 4"><span class="hm-box">4</span></span>
+        </fieldset>
+        <div class="hm-poles"><span>toward people and tasks</span><span>away, and nothing to do</span></div>
+      </div>
+        </div>
+
+        <div class="hm-other">
+          <h3>Two more, which you cannot answer alone</h3>
+          <p class="kicker">Not an oversight. These are the dimensions the instrument cannot complete by itself, and naming them is the point.</p>
+          <div class="hm-pair">
+            <div><h4>Legibility</h4>
+              <p>Can someone who knows you follow you? Not agree &mdash; follow. It is a two-way property: how close or far apart two people are depends on what one says <em>and</em> how the other listens. Which is why it needs a reader who is actually trying.</p></div>
+            <div><h4>Coherence</h4>
+              <p>Is thinking holding together? Not whether it is unusual &mdash; metaphorical, allusive, difficult speech is not disorganisation. This one is not self-assessable by definition.</p></div>
+          </div>
+          <p class="hm-who">Who could answer these two? Not a question for this page &mdash; a question for after it.</p>
+        </div>
+      </div>
+
+      <div class="hm-sec">
+        <span class="eyebrow">The shape</span>
+        <h2>A position, and then a direction</h2>
+        <p class="lede">A single reading shows where things sit. Several readings show a direction of travel &mdash; which is what this map exists for, and what a one-off assessment cannot see.</p>
+
+        <div class="hm-map">
+          <div>
+            <div class="hm-plot">
+              <svg id="hmPlot" viewBox="0 0 420 420" role="img" aria-labelledby="hmT hmD">
+                <title id="hmT">Six-axis pressure map</title>
+                <desc id="hmD">Current reading across cost, room, reach, company, tempo and fruit, with earlier readings ghosted behind.</desc>
+              </svg>
+            </div>
+            <div class="hm-legend"><span><i></i>this reading</span><span><i class="g"></i>earlier readings</span></div>
+            <div class="hm-acts">
+              <button class="pill pill--solid" id="hmSave" type="button">Add this reading</button>
+              <button class="pill pill--ghost" id="hmCopy" type="button">Copy for notes</button>
+              <button class="pill pill--ghost" id="hmReset" type="button">Clear</button>
+            </div>
+            <p class="hm-privacy">Nothing on this page is stored or sent anywhere. Close the tab and it is gone.</p>
+            <div class="hm-saved" id="hmSaved"></div>
+          </div>
+          <div class="hm-read">
+            <h3>What the shape may mean</h3>
+            <div id="hmPatterns"></div>
+            <div class="hm-moves" id="hmMoves"></div>
+            <div class="hm-out">
+              <span class="lab">Always outstanding</span>
+              <p>Legibility and coherence remain unanswered, and they cannot be answered from inside. Whoever is closest to you is the only instrument for those two. That is not a gap in the map &mdash; it is the map pointing somewhere it cannot go.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hm-outside">
+          <span class="lab">Outside the map</span>
+          <p>If the experience is instructing harm &mdash; to you or to anyone else &mdash; the mapping stops and someone is brought in now.</p>
+          <p class="q">This is not a dimension and is not weighed against anything else on the page. Everything above is a description. This is not.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="art-source">
+      <p><b>Lukoff, D. (1985)</b> &mdash; &ldquo;The Diagnosis of Mystical Experiences with Psychotic Features,&rdquo; <em>Journal of Transpersonal Psychology</em> 17(2). The overlap criteria, the decision flowchart, and the two UFO accounts.</p>
+      <p><b>Peters, Day, McKenna &amp; Orbach (1999)</b> &mdash; <em>British Journal of Clinical Psychology</em> 38. Religious-movement members could not be distinguished from deluded inpatients on number of unusual beliefs or on conviction. They differed on distress and preoccupation.</p>
+      <p><b>Jackson &amp; Fulford (1997)</b> &mdash; <em>Philosophy, Psychiatry &amp; Psychology</em> 4(1). Spiritual and psychotic phenomena are often qualitatively identical; the distinction lies in how they are embedded.</p>
+      <p><b>Marzanski &amp; Bratton (2002)</b> &mdash; same journal. Neither can be understood without the person&rsquo;s history and tradition. This is why <em>Company</em> is on the map.</p>
+      <p><b>Hardy, A. (1979)</b> &mdash; <em>The Spiritual Nature of Man</em>. Over four thousand ordinary accounts: visions in 18%, voices in 7%, contact with the dead in 8%.</p>
+    </div>
+
+    <div class="art-byline">
+      <h3>A note on what this is not</h3>
+      <p>This is not an assessment, not a diagnosis, and not a substitute for care. It cannot tell anyone they are well. It has not been validated, and its dimensions are borrowed from instruments built for a different purpose. It is a way of looking, offered by someone who takes both the spiritual and the clinical seriously and will not collapse either into the other.</p>
+    </div>
+
+    <div class="art-back">
+      <a class="pill pill--ghost" href="library.html#assessments">&larr; Back to the Library</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="panel" id="begin" data-tone="light">
+  <div class="night-card" data-tone="dark">
+    <div class="begin-inner">
+      <img class="emblem rv" src="assets/mark-t.png" alt="" aria-hidden="true" loading="lazy">
+      <p class="eyebrow rv">Begin</p>
+      <h2 class="rv">Want to read a map with someone?</h2>
+      <p class="lede rv">Two of the eight dimensions cannot be answered alone. If you want company for those, write and say so. From a person, not a funnel.</p>
+      <div class="cta-row rv">
+        <a class="pill pill--solid mag" href="mailto:ari@arileal.com?subject=The%20Holding%20Map">Write to Ari</a>
+        <a class="pill pill--ghost mag" href="mailto:ari@arileal.com">ari@arileal.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="shell">
+    <div class="foot">
+      <div><p class="fh">Reach</p><a href="mailto:ari@arileal.com">ari@arileal.com</a><a href="tel:+16592745325">(659) ARI-LEAL &middot; 659-274-5325</a><span>St. Petersburg, Florida &middot; sessions held remotely</span></div>
+      <div><p class="fh">The Work</p><a href="coaching.html">Coaching</a><a href="integration.html">Integration</a><a href="match-checking.html">Relationships</a></div>
+      <div><p class="fh">Elsewhere</p><a href="unfold.html">UNFOLD</a><a href="library.html">Library</a><a href="index.html#ari">About Ari</a><a href="https://clinicians.arileal.com">For Clinicians</a></div>
+    </div>
+    <p class="fine">Ari Leal LLC offers coaching and educational services. This work is not psychotherapy, medical care, or mental-health treatment, and no offering here provides, encourages, or sources controlled substances.</p>
+    <p class="fine">&copy; 2026 Ari Leal LLC</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, body=document.body; root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine=window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  /* reveals */
+  var panels=[].slice.call(document.querySelectorAll('.panel'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}
+    });},{threshold:0,rootMargin:'0px 0px -10% 0px'});
+    panels.forEach(function(p){io.observe(p);});
+  }else{panels.forEach(function(p){p.classList.add('is-in');});}
+  if(panels[0])panels[0].classList.add('is-in');
+
+  /* nav: light over night, a soft fade once the page moves */
+  var darks=[].slice.call(document.querySelectorAll('[data-tone="dark"]'));
+  function paint(){
+    var dark=false, full=false;
+    for(var i=0;i<darks.length;i++){var r=darks[i].getBoundingClientRect();
+      if(r.top<=40&&r.bottom>=40){dark=true;full=!darks[i].classList.contains('night-card');break;}}
+    body.classList.toggle('dark-nav',dark);
+    body.classList.toggle('scrolled',window.scrollY>24&&(!dark||full));
+  }
+  var tick=false;
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(function(){tick=false;paint();});}},{passive:true});
+  window.addEventListener('resize',paint); paint();
+
+  /* menu */
+  var burger=document.getElementById('burger'), menuEl=document.getElementById('menu');
+  function setMenu(open){
+    body.classList.toggle('menu-open',open);
+    burger.setAttribute('aria-expanded',open?'true':'false');
+    menuEl.setAttribute('aria-hidden',open?'false':'true');
+    menuEl.inert=!open;
+    if(open){var f=menuEl.querySelector('a');if(f)setTimeout(function(){f.focus({preventScroll:true});},120);}
+    else if(document.activeElement&&menuEl.contains(document.activeElement)){burger.focus();}
+  }
+  burger.addEventListener('click',function(){setMenu(!body.classList.contains('menu-open'));});
+  [].slice.call(menuEl.querySelectorAll('a')).forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&body.classList.contains('menu-open'))setMenu(false);});
+
+  /* magnetic pills: a light spring toward the pointer, fine pointers only */
+  if(fine&&!reduce){
+    [].slice.call(document.querySelectorAll('.mag')).forEach(function(b){
+      var tx=0,ty=0,x=0,y=0,vx=0,vy=0,run=false;
+      function step(){
+        vx=(vx+(tx-x)*.16)*.72; vy=(vy+(ty-y)*.16)*.72; x+=vx; y+=vy;
+        b.style.transform='translate('+x.toFixed(2)+'px,'+y.toFixed(2)+'px)';
+        if(Math.abs(tx-x)+Math.abs(ty-y)+Math.abs(vx)+Math.abs(vy)>.05)requestAnimationFrame(step);
+        else{run=false;if(!tx&&!ty)b.style.transform='';}
+      }
+      function kick(){if(!run){run=true;requestAnimationFrame(step);}}
+      b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();
+        tx=(e.clientX-r.left-r.width/2)*.16; ty=(e.clientY-r.top-r.height/2)*.22; kick();});
+      b.addEventListener('pointerleave',function(){tx=0;ty=0;kick();});
+    });
+  }
+})();
+</script>
+
+<script>
+(function(){
+var DIMS = [
+  { key:'cost', name:'Cost', lo:'no distress', hi:'constant distress' },
+  { key:'room', name:'Room', lo:'easily set down', hi:'always running' },
+  { key:'reach', name:'Reach', lo:'nothing else touched', hi:'everything affected' },
+  { key:'comp', name:'Company', lo:'held with others', hi:'no one knows' },
+  { key:'tempo', name:'Tempo', lo:'settling', hi:'accelerating' },
+  { key:'fruit', name:'Fruit', lo:'toward people and tasks', hi:'away, and nothing to do' }
+];
+var state={}; DIMS.forEach(function(d){state[d.key]=0;});
+var readings=[], HI=3, LO=1;
+
+var RESPONSE={
+ cost:{mean:'The experience has moved from something happening to you to something that is hurting. Distress is not evidence that it was false. It is the clearest available sign that it needs more than solitude.',
+  doing:'Write the experience on one line and the suffering on another. People often find the pain is attached to something adjacent &mdash; being disbelieved, or being frightened of what it implies &mdash; rather than to the experience itself.'},
+ room:{mean:'It has taken more of the day than was offered to it. Devotion and preoccupation look identical from outside; the difference is whether it can be set down.',
+  doing:'Put it down on purpose for a fixed stretch &mdash; an afternoon, a day. Not as a test of willpower. To find out whether setting it down is available.'},
+ reach:{mean:'It is no longer contained in the part of life that was given to it. Sleep, work and the people who depend on you are the load-bearing walls; when they go, everything else becomes harder to read.',
+  doing:'Choose the one most affected and protect that one first. Usually sleep. Restoring a single structure tends to do more than addressing the experience directly.'},
+ comp:{mean:'There is nothing wrong with solitude &mdash; most of this happens alone. But an unaccompanied experience has no correction available to it. Nothing outside itself to confirm it or push back.',
+  doing:'Tell one person. Not for permission and not for a verdict. Putting it into words for someone who knows you does most of the work by itself.'},
+ tempo:{mean:'The experience is moving under its own power, faster than it is being metabolised. Speed is the dimension that makes every other one harder to assess.',
+  doing:'Reduce whatever is feeding it &mdash; not stop, reduce. Then take a second reading in a week. At this end of the axis, direction matters far more than today&rsquo;s position.'},
+ fruit:{mean:'It is turning you away from people and obligations rather than toward them. Every tradition that thought carefully about this weighted that direction heavily, long before anyone measured anything.',
+  doing:'Pick one obligation that has slipped and do it this week. Something small. The point is not discipline &mdash; it is to find out whether the turning away is chosen or compelled.'}
+};
+
+var SVG='http://www.w3.org/2000/svg', plot=document.getElementById('hmPlot');
+var CX=210, CY=212, R=130;
+function pt(i,v){var a=-Math.PI/2+i*(Math.PI*2/6), r=26+(v/4)*(R-26);
+  return [CX+r*Math.cos(a), CY+r*Math.sin(a)];}
+function mk(t,a,x){var n=document.createElementNS(SVG,t);
+  for(var k in a) n.setAttribute(k,a[k]); if(x!=null) n.textContent=x; return n;}
+
+function drawPlot(){
+  [].slice.call(plot.querySelectorAll('.layer')).forEach(function(n){n.remove();});
+  var g=mk('g',{'class':'layer'});
+  for(var lvl=1; lvl<=4; lvl++){
+    var pts=DIMS.map(function(_,i){return pt(i,lvl).join(',');}).join(' ');
+    g.appendChild(mk('polygon',{points:pts,'class':'hm-ring','stroke-width':lvl===4?1:0.6}));
+  }
+  DIMS.forEach(function(d,i){
+    var o=pt(i,0), e=pt(i,4);
+    g.appendChild(mk('line',{x1:o[0],y1:o[1],x2:e[0],y2:e[1],'class':'hm-axis'}));
+    for(var lv=1; lv<=4; lv++){var t=pt(i,lv);
+      g.appendChild(mk('circle',{cx:t[0],cy:t[1],r:1.1,'class':'hm-tick'}));}
+    var a=-Math.PI/2+i*(Math.PI*2/6);
+    var lx=CX+(R+26)*Math.cos(a), ly=CY+(R+26)*Math.sin(a);
+    var anch=Math.abs(Math.cos(a))<0.2?'middle':(Math.cos(a)>0?'start':'end');
+    g.appendChild(mk('text',{x:lx,y:ly+4,'text-anchor':anch,'class':'hm-lab'}, d.name.toUpperCase()));
+  });
+  readings.forEach(function(r,idx){
+    var op=0.14+(0.24*(idx+1)/readings.length);
+    var pts=DIMS.map(function(d,i){return pt(i,r.vals[d.key]).join(',');}).join(' ');
+    g.appendChild(mk('polygon',{points:pts,'class':'hm-ghost',opacity:op}));
+  });
+  var cur=DIMS.map(function(d,i){return pt(i,state[d.key]);});
+  g.appendChild(mk('polygon',{points:cur.map(function(p){return p.join(',');}).join(' '),'class':'hm-now'}));
+  cur.forEach(function(p){g.appendChild(mk('circle',{cx:p[0],cy:p[1],r:3.4,'class':'hm-bead'}));});
+  plot.appendChild(g);
+}
+
+function patterns(){
+  var s=state,out=[];
+  var heavy=s.cost>=HI&&s.room>=HI, fraying=s.reach>=HI, alone=s.comp>=HI, rising=s.tempo>=HI;
+  if(heavy&&fraying&&alone&&rising) out.push({tag:'Carrying a great deal, unaccompanied',
+    text:'High cost, little room left, the rest of life fraying, no one alongside, and the experience picking up speed. What this is called matters far less than what it needs.',
+    move:'Company and care, today rather than eventually. Not interpretation &mdash; there is nothing to interpret until someone is in it with you.'});
+  if(rising&&alone) out.push({tag:'Tempo rising, company low',
+    text:'The one combination worth treating as a signal on its own, whatever the other four are doing. An experience picking up speed with no one alongside it is the condition under which every other dimension becomes harder to read &mdash; including by the person reading them.',
+    move:'Bring one person in before doing anything else. Then read the map again in a week. Two points make a line; one makes nothing.'});
+  if(s.room>=HI&&s.cost<=LO&&s.reach<=LO&&alone) out.push({tag:'Absorbed, not suffering, alone',hold:true,
+    text:'The most commonly misread shape, and the one this map cannot resolve. Deeply taken up, no distress, everything still working, nobody else in it &mdash; which is what serious contemplative practice looks like from outside, and also what an early episode can look like.',
+    move:'The map does not settle this and should not pretend to. What it can do is point at Company: it is the one dimension here that can be acted on, and acting on it is what would make the difference legible.'});
+  if(s.cost<=LO&&s.room<=LO&&s.reach<=LO&&s.comp<=LO) out.push({tag:'Living alongside it',
+    text:'Someone having an experience and also having a life. Almost nothing follows from this shape.',
+    move:'Stay curious. If you want to work with it, that is a different conversation than this one &mdash; and a good one to be having.'});
+  if(s.fruit>=HI&&s.reach<=LO) out.push({tag:'Turning inward while life holds',
+    text:'The experience is drawing away from people and tasks, but the structure around it is intact. That combination is stable in some people and the first move of something else in others.',
+    move:'Watch the direction rather than the position. This is precisely the case a second reading in a month would clarify and a single reading cannot.'});
+  if(!out.length) out.push({tag:'Nothing pronounced',
+    text:'No single dimension is doing much and no pattern is asserting itself. That is a description of this moment, not a conclusion about you.',
+    move:'Note the date and come back to it. A quiet reading is only useful as the first of several.'});
+  return out;
+}
+function raised(){return DIMS.filter(function(d){return state[d.key]>=HI;})
+  .sort(function(a,b){return state[b.key]-state[a.key];});}
+
+function render(){
+  drawPlot();
+  var box=document.getElementById('hmPatterns'); box.innerHTML='';
+  patterns().forEach(function(p){
+    var el=document.createElement('div');
+    el.className='hm-pat hm-fade'+(p.hold?' hold':'');
+    el.innerHTML='<span class="tag">'+p.tag+'</span><p>'+p.text+'</p>'+
+      '<div class="mv"><b>What might help</b><p>'+p.move+'</p></div>';
+    box.appendChild(el);
+  });
+  var rs=raised(), mv=document.getElementById('hmMoves');
+  if(!rs.length){mv.innerHTML='';}
+  else{mv.innerHTML='<h3>Where the weight is</h3>'+
+    '<p class="intro">One response per axis carrying pressure, heaviest first. Suggestions, not instructions &mdash; and none of them is a treatment.</p>'+
+    rs.map(function(d){return '<div class="hm-mi hm-fade">'+
+      '<div class="ax"><span>'+d.name+'</span><em>'+state[d.key]+' of 4 &mdash; '+d.hi+'</em></div>'+
+      '<p class="mean">'+RESPONSE[d.key].mean+'</p>'+
+      '<p class="do"><b>Try:</b> '+RESPONSE[d.key].doing+'</p></div>';}).join('');}
+  var sv=document.getElementById('hmSaved');
+  if(!readings.length) sv.innerHTML='';
+  else sv.innerHTML='<strong>Readings held this session</strong><ul>'+
+    readings.map(function(r,i){return '<li>'+('0'+(i+1)).slice(-2)+' &middot; '+r.stamp+' &middot; '+
+      DIMS.map(function(d){return d.name.slice(0,2).toLowerCase()+' '+r.vals[d.key];}).join('  ')+'</li>';}).join('')+'</ul>';
+  document.getElementById('hmReset').disabled=!readings.length;
+}
+
+document.querySelector('.hm-dims').addEventListener('change',function(e){
+  if(e.target.name in state){state[e.target.name]=+e.target.value; render();}
+});
+document.getElementById('hmSave').addEventListener('click',function(){
+  readings.push({stamp:new Date().toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'}),
+    vals:JSON.parse(JSON.stringify(state))});
+  render();
+});
+document.getElementById('hmReset').addEventListener('click',function(){readings.length=0; render();});
+document.getElementById('hmCopy').addEventListener('click',function(e){
+  function strip(h){var t=document.createElement('div'); t.innerHTML=h; return t.textContent;}
+  var lines=['THE HOLDING MAP \u2014 '+new Date().toLocaleDateString(),''];
+  DIMS.forEach(function(d){lines.push((d.name+'         ').slice(0,10)+state[d.key]+'/4   '+d.lo+' \u2192 '+d.hi);});
+  lines.push('','What the shape may mean:');
+  patterns().forEach(function(p){lines.push('\u2022 '+p.tag,'  '+strip(p.text),'  What might help: '+strip(p.move),'');});
+  lines.push('Where the weight is:');
+  var rs=raised();
+  if(!rs.length) lines.push('(no axis carrying pressure at this reading)');
+  else rs.forEach(function(d){lines.push('\u2022 '+d.name+' ('+state[d.key]+'/4) \u2014 '+strip(RESPONSE[d.key].mean),
+    '  Try: '+strip(RESPONSE[d.key].doing),'');});
+  lines.push('Outstanding: legibility and coherence, which cannot be answered from inside.','',
+    'Not an assessment. Not a diagnosis. Cannot indicate that anyone is well.');
+  var btn=e.target;
+  navigator.clipboard.writeText(lines.join('\n')).then(function(){
+    btn.textContent='Copied'; setTimeout(function(){btn.textContent='Copy for notes';},1600);
+  }).catch(function(){
+    btn.textContent='Copy unavailable'; setTimeout(function(){btn.textContent='Copy for notes';},1600);
+  });
+});
+render();
+})();
+</script>
+
+</body>
+</html>
